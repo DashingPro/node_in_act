@@ -43,3 +43,22 @@ glob(haha, callback(err, res))
 
 ## 异步：事件循环
 
+## 异步： Promise
+当前时间循环得不到结果，但是未来的时间循环会给到你结果
+是一个状态机
+ * pending
+ * fulfilled/resolved
+ * rejected
+
+执行then和catch会返回一个新Promise，该Promise最终状态根据then和catch的回调函数的执行结果决定
+* 如果回调函数最终throw，该Promise是 rejected状态
+* 如果回调函数最终是return，该Promise是resolved状态
+* 但如果回调函数最终return了一个Promise，该Promise会和回调函数return的Promise状态保持一致
+
+## 异步：async await
+
+async function 是 Promise 的语法糖封装
+异步编程中级方法，已同步的方式写异步
+* await 关键字可以 "暂停" async function 的执行
+* await关键字可以已同步的写法获取 Promise的执行结果
+* try-catch可以获取 await 所得到的错误
